@@ -30,8 +30,9 @@
     </table>
     {% endif %}
     <form action="/" method="POST">
-        <input type="text" name="content" id="content">
+        <input type="text" name="content" id="content" placeholder="Your task">
         <input type="submit" value="Add Task">
     </form>
+    <p>{{ msg }}</p>
 </div>
 {% endblock %}

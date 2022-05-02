@@ -1,13 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Email: contact@contact.com.br</p>
-    <p>Phone: +99(99)99999-9999</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Contact</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center;">Register your email for contact</h1>
+    <div class="form">
+        <form action="/register" method="POST">
+            <input type="text" name="name" id="name" placeholder="Your name" autofocus>
+            <input type="email" name="email" id="email" placeholder="Your e-mail">
+            <input type="submit" value="Add contact">
+        </form>
+    </div>
+    <a href="/registered">Registered</a>
+</div>
+<script>
+    document.querySelector('form').onsubmit = function() {
+        if (!document.querySelector('#name').value) {
+            alert('You must provide your name!');
+            return false;
+        }
+        else if (!document.querySelector('#email').value) {
+            alert('You must provide your e-mail!');
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}
